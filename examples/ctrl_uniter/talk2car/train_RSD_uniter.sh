@@ -4,13 +4,14 @@ TASK=68
 MODEL=ctrl_uniter
 MODEL_CONFIG=ctrl_uniter_base
 TASKS_CONFIG=ctrl_trainval_tasks
-PRETRAINED=checkpoints/conceptual_captions/${MODEL}/${MODEL_CONFIG}/pytorch_model_9.bin
+# PRETRAINED=checkpoints//${MODEL}/${MODEL_CONFIG}/pytorch_model_9.bin
+PRETRAINED=checkpoints/conceptual_captions/ctrl_uniter/ctrl_uniter_base/pytorch_model_9.bin/FeYIWpMSFg
 OUTPUT_DIR=checkpoints/talk2car/${MODEL}_region_all_layer_fusion_self_attn_30epoch
 LOGGING_DIR=logs/talk2car
 
-conda activate volta
+# conda activate volta
 
-cd ../../..
+# cd ../../..
 python3 train_task.py \
         --config_file config/${MODEL_CONFIG}.json --from_pretrained ${PRETRAINED} \
         --tasks_config_file config_tasks/${TASKS_CONFIG}.yml --task $TASK \
@@ -21,4 +22,4 @@ python3 train_task.py \
   --num_train_epochs 30 \
   --seed 0
 
-conda deactivate
+# conda deactivate
